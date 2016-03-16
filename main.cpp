@@ -10,17 +10,28 @@ matches the output of this program.
 #include <stdio.h>
 #include <string>
 #include "binaryconvert.hpp"
+#include "inputparser.hpp"
 
 using namespace std;
 
 int main()
 {
-	string operation;		//Operation that the user would like to perform
+	cout << "\nFloating Point Calculator and Binary Respresentation \n\n";
+	string operands;		//Operands 
+	string operation;		//Operator
 
-	cout << "Enter your operands and operator(s) combination: \n" << endl;
-	cin >> operation;
-
+	cout << "Enter your operands seperated by a space (i.e. 5.2 14.41): \n";
+	getline(cin, operands);
+	cout << "\nEnter your operator(i.e. +): \n\n";
+	getline(cin, operands);
+	
 	//Parse the operation and perform the operation
+	InputParser parseIn;
+
+	parseIn.parseOperandInput(operands);
+	parseIn.parseOperatorInput(operation);
+
+	printf("Operand 1: %d Operator: %c Operand 2: %d \n", parseIn.getOperand1(), parseIn.getOperator(), parseIn.getOperand2());
 
 
 	return 1;

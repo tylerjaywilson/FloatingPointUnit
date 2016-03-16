@@ -3,8 +3,20 @@
 
 class InputParser
 {
+	float operand1, operand2;
+	int numOperands;
+	char operation;
+
 	public:
 		InputParser();	//Default Constructor
+		void parseOperandInput(std::string);
+		void parseOperatorInput(std::string);
+		void setOperand1(float);
+		void setOperand2(float);
+		void setOperator(char);
+		float getOperand1(void);
+		float getOperand2(void);
+		char getOperator(void);
 };
 
 #endif
