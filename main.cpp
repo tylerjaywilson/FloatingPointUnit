@@ -10,7 +10,7 @@ matches the output of this program.
 #include <stdio.h>
 #include <string>
 #include <bitset>
-#include "binaryconvert.hpp"
+#include "calculation.hpp"
 #include "inputparser.hpp"
 
 using namespace std;
@@ -37,10 +37,10 @@ int main()
 	cout << "Operand1: " << parseIn.getOperand1() << " Operand2: " << parseIn.getOperand2() << " Operator: " << parseIn.getOperator() << endl;
 
 	//Perform whatever necessary calculation
-
-
-	BinaryConvert bConverter;
-	bConverter.printToBinary(parseIn.getOperand1());
-
+	Calculation calculate;
+	float result;
+	result = calculate.floatCalculation(parseIn.getOperand1(), parseIn.getOperand2(), parseIn.getOperator());
+	calculate.printToBinary(result);
+	
 	return 1;
 } 
