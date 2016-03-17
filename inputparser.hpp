@@ -9,7 +9,8 @@ class InputParser
 
 	public:
 		InputParser();	//Default Constructor
-		void parseOperandInput(std::string);
+		void parseOperandInput1(std::string);
+		void parseOperandInput2(std::string);
 		void parseOperatorInput(std::string);
 		void setOperand1(float);
 		void setOperand2(float);

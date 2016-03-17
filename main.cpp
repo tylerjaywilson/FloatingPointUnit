@@ -9,6 +9,7 @@ matches the output of this program.
 #include <iostream>
 #include <stdio.h>
 #include <string>
+#include <bitset>
 #include "binaryconvert.hpp"
 #include "inputparser.hpp"
 
@@ -17,22 +18,29 @@ using namespace std;
 int main()
 {
 	cout << "\nFloating Point Calculator and Binary Respresentation \n\n";
-	string operands;		//Operands 
+	string operand1, operand2;		//Operands 
 	string operation;		//Operator
-
-	cout << "Enter your operands seperated by a space (i.e. 5.2 14.41): \n";
-	getline(cin, operands);
-	cout << "\nEnter your operator(i.e. +): \n\n";
-	getline(cin, operands);
+	
+	cout << "Enter your 1st operand (i.e. 3.12): \n";
+	getline(cin, operand1);
+	cout << "Enter your 2nd operand (i.e. -12.276): \n";
+	getline(cin, operand2);
+	cout << "Enter your operator(i.e. +): \n";
+	getline(cin, operation);
 	
 	//Parse the operation and perform the operation
 	InputParser parseIn;
-
-	parseIn.parseOperandInput(operands);
+	parseIn.parseOperandInput1(operand1);
+	parseIn.parseOperandInput2(operand2);
 	parseIn.parseOperatorInput(operation);
 
-	printf("Operand 1: %d Operator: %c Operand 2: %d \n", parseIn.getOperand1(), parseIn.getOperator(), parseIn.getOperand2());
+	cout << "Operand1: " << parseIn.getOperand1() << " Operand2: " << parseIn.getOperand2() << " Operator: " << parseIn.getOperator() << endl;
 
+	//Perform whatever necessary calculation
+
+
+	BinaryConvert bConverter;
+	bConverter.printToBinary(parseIn.getOperand1());
 
 	return 1;
 } 
