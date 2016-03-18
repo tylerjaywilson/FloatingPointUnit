@@ -17,7 +17,7 @@ Calculation::Calculation()
 /* Print the desired float in binary form */
 void Calculation::printToBinary(float operand)
 {	
-	cout << "Binary representation of " << operand << ": ";
+	cout << "\nBinary representation of " << operand << ": ";
 	int bit = 0;	
 
 	int *bits = reinterpret_cast<int*>(&operand); // use reinterpret_cast function
@@ -26,7 +26,7 @@ void Calculation::printToBinary(float operand)
 		bit = ((*bits>> k)&(0x1)); // get the copied bit value shift right k times, then AND with a 1.
 		cout << bit; // print the bit.
 	}
-	cout << endl;
+	cout << endl << endl;
 
 	operandBits = bits;
 }
