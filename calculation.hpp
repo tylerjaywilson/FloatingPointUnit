@@ -10,6 +10,7 @@ class Calculation
 		Calculation();	//Default Constructor
 		void printToBinary(float);	//convert the float to binary
 		float floatCalculation(float, float, char);
+		bool compareCalculation(float, float, char);
 };
 
 #endif

@@ -36,11 +36,24 @@ int main()
 
 	cout << "Operand1: " << parseIn.getOperand1() << " Operand2: " << parseIn.getOperand2() << " Operator: " << parseIn.getOperator() << endl;
 
-	//Perform whatever necessary calculation
+	//Perform whatever necessary calculations or comparisons
 	Calculation calculate;
-	float result;
-	result = calculate.floatCalculation(parseIn.getOperand1(), parseIn.getOperand2(), parseIn.getOperator());
-	calculate.printToBinary(result);
+	float calcResult;
+	bool compResult;
 	
+	if(parseIn.getOperator() == '<' || parseIn.getOperator() == '>' || parseIn.getOperator() == '=')
+	{
+		compResult = calculate.compareCalculation(parseIn.getOperand1(), parseIn.getOperand2(), parseIn.getOperator());
+		if(compResult == true)
+			cout << "Operand 1: " << parseIn.getOperand1() << " is " << parseIn.getOperator() << " operand 2: " << parseIn.getOperand2() << endl;
+		else
+			cout << "Operand 1: " << parseIn.getOperand1() << " is not " << parseIn.getOperator() << " operand 2: " << parseIn.getOperand2() << endl;		
+	}
+	else
+	{
+		calcResult = calculate.floatCalculation(parseIn.getOperand1(), parseIn.getOperand2(), parseIn.getOperator());
+		calculate.printToBinary(calcResult);
+	}
+
 	return 1;
 } 

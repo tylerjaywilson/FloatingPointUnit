@@ -58,3 +58,31 @@ float Calculation::floatCalculation(float op1, float op2, char operate)
 	}
 	return result;
 }
+
+//Do a comparison operation to determine if the input comparison holds true. Return true or false.
+bool Calculation::compareCalculation(float op1, float op2, char operate)
+{
+	switch(operate)
+	{
+		case '<':
+			if(op1 < op2)
+				return true;
+			else
+				return false;
+			break;
+		case '>':
+			if(op1 > op2)
+				return true;
+			else
+				return false;
+			break;
+		case '=':
+			if(op1 == op2)
+				return true;
+			else
+				return false;
+			break;
+		default:
+			cout << "Error in operator input!" << endl;
+	}
+}
