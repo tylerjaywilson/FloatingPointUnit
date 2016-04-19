@@ -31,6 +31,23 @@ void Calculation::printToBinary(float operand)
 	operandBits = bits;
 }
 
+/* Print the desired int in binary form */
+void Calculation::printToBinary(int operand)
+{	
+	cout << "\nBinary representation of " << operand << ": ";
+	int bit = 0;	
+
+	int *bits = reinterpret_cast<int*>(&operand); // use reinterpret_cast function
+	for (int k = 31; k >=0; k--) // for loop to print out binary pattern
+	{
+		bit = ((*bits>> k)&(0x1)); // get the copied bit value shift right k times, then AND with a 1.
+		cout << bit; // print the bit.
+	}
+	cout << endl << endl;
+
+	operandBits = bits;
+}
+
 /* Perform the necessary operation of the two float values and return the result */
 float Calculation::floatCalculation(float op1, float op2, char operate)
 {

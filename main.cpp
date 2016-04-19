@@ -27,7 +27,8 @@ int main()
 	getline(cin, operand2);
 	cout << "Enter your operator(i.e. +): \n";
 	getline(cin, operation);
-	
+	cout << endl;
+
 	//Parse the operation and perform the operation
 	InputParser parseIn;
 	parseIn.parseOperandInput1(operand1);
@@ -35,9 +36,14 @@ int main()
 	parseIn.parseOperatorInput(operation);
 
 	cout << "Operand1: " << parseIn.getOperand1() << " Operand2: " << parseIn.getOperand2() << " Operator: " << parseIn.getOperator() << endl;
-
+	
 	//Perform whatever necessary calculations or comparisons
 	Calculation calculate;
+
+	//Print the operands in binary form
+	calculate.printToBinary(parseIn.getOperand1());
+	calculate.printToBinary(parseIn.getOperand2());
+	
 	float calcResult;
 	bool compResult;
 	
@@ -49,9 +55,23 @@ int main()
 		else
 			cout << "Operand 1: " << parseIn.getOperand1() << " is not " << parseIn.getOperator() << " operand 2: " << parseIn.getOperand2() << endl;		
 	}
+	else if(parseIn.getOperator() == 'I')
+	{
+		int intResult = parseIn.getOperand1();
+		cout << "The result is: " << intResult << endl;
+		calculate.printToBinary(intResult);
+	}
+	else if(parseIn.getOperator() == 'F')
+	{
+		int intOp = parseIn.getOperand1();
+		calculate.printToBinary(intOp);
+		cout << "The result is: " << parseIn.getOperand1() << endl;
+		calculate.printToBinary(parseIn.getOperand1());
+	}
 	else
 	{
 		calcResult = calculate.floatCalculation(parseIn.getOperand1(), parseIn.getOperand2(), parseIn.getOperator());
+		cout << "The result is: " << calcResult << endl;
 		calculate.printToBinary(calcResult);
 	}
 
